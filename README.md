@@ -82,4 +82,5 @@ are configured. By default, 200 in our Tomcat setup.
 
 - http://www.zylk.net/en/web-2-0/blog/-/blogs/monitorizando-liferay-portal-con-nagios (Blog Post - Spanish)
 - https://exchange.nagios.org/directory/Plugins/Java-Applications-and-Servers/Syabru-Nagios-JMX-Plugin/details
+- https://snippets.syabru.ch/nagios-jmx-plugin/download.html
 - https://github.com/toniblyx/alfresco-nagios-and-icinga-plugin

@@ -46,7 +46,27 @@ Finally, configure you Liferay host and services to configure.
 
 ## JMX Objects
 
-TODO 
+Some basics in Liferay Monitoring are:
+
+* JVM Heap Used 
+
+* Thread Pool
+  * maxThreads (static): This attribute tells us how many maximum threads
+are configured. By default, 200 in our Tomcat setup.
+  * currentThreadCount : This attribute tells about how many threads are created (including busy threads and idle threads)
+  * currentThreadsBusy : This attribute tells us how many threads are busy in serving requests.
+
+* Database Pool: There are many attributes exposed by the database connection pool MBean. The following are some of the basics
+  * maxPoolSize (static): This attribute tells us the maximum number of connections that can be created in a database connection pool. 
+  * numBusyConnections : This attribute tells us how many database connections are in use by Liferay server.
+  * numConnections : This attribute tells us how many connections are created in the database connection pool (busy and idle connections).
+
+* Cache statistics: They provide information of various attributes, but here are some of the key attributes for monitoring:
+  * ObjectCount : This attribute tells us how many objects there are in the cache.
+  * OnDiskHits : This attribute tells us how many requests are successful in locating objects from a filesystem-based cache. 
+  * InMemoryHits : This attribute tells us how many requests are successful in retrieving objects from an in-memory cache.
+  * CacheHits : This attribute tells us how many requests are successful in retrieving objects from the cache. It includes both in-memory and disk-based caches.
+  * CacheMisses : This attribute tells us how many requests are unsuccessful in retrieving objects from the cache.
 
 ## Tested Setup
 

@@ -13,7 +13,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.access.file=/opt/li
 CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=tomcat.zylk.net"
 ```
 
-You should be able to connect via JMX with Jconsole, VisualVM or JMXTerm.
+You should be able to connect and check JMX objects with Jconsole, VisualVM or JMXTerm.
 
 In Nagios/Icinga server, copy next two files to your Nagios plugin directory.
  - check_jmx (Copy to /usr/lib/nagios/plugins/ - or your plugins directory) 
@@ -22,7 +22,6 @@ In Nagios/Icinga server, copy next two files to your Nagios plugin directory.
 Then, add Liferay command definitions in Nagios plugin configuration directory.
  - /etc/icinga/objects/liferay-commands.cfg
  
-The command defines the access to JMX objects, that can be obtained via Jconsole, VisualVM or JMXterm
  
 ```
 define command {
@@ -79,10 +78,9 @@ are configured. By default, 200 in our Tomcat setup.
   * CacheHits : This attribute tells us how many requests are successful in retrieving objects from the cache. It includes both in-memory and disk-based caches.
   * CacheMisses : This attribute tells us how many requests are unsuccessful in retrieving objects from the cache.
 
-Some of them are included in liferay-command.cfg are examples.
+Some of them are included in liferay-command.cfg as examples.
 
 ## Tested Setup
-
 - Liferay 6.2
 - Nagios/Icinga 3
 
@@ -91,7 +89,6 @@ Some of them are included in liferay-command.cfg are examples.
 - [Cesar Capillas](http://github.com/CesarCapillas)
 
 ## Links
-
 - http://www.zylk.net/en/web-2-0/blog/-/blogs/monitorizando-liferay-portal-con-nagios (Blog Post - Spanish)
 - https://exchange.nagios.org/directory/Plugins/Java-Applications-and-Servers/Syabru-Nagios-JMX-Plugin/details
 - https://snippets.syabru.ch/nagios-jmx-plugin/download.html

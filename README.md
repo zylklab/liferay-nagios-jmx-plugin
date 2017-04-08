@@ -53,6 +53,11 @@ TODO
 - Liferay 6.2
 - Nagios/Icinga 3
 
+## Authors
+
+- Gustavo Fernandez
+- Cesar Capillas
+
 ## Links
 
 - http://www.zylk.net/en/web-2-0/blog/-/blogs/monitorizando-liferay-portal-con-nagios (Blog Post - Spanish)

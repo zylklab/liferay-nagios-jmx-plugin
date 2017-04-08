@@ -2,9 +2,20 @@
 
 ## Installation
 
-First check your JMX credentials in Liferay.
+First configure your JMX credentials in Liferay Portal via $CATALINA_OPTS variable in $TOMCAT_HOME/bin/setenv.sh (and restart your Liferay service): 
+```
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote=true"
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.port=6666"
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.authenticate=true"
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.ssl=false"
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.password.file=/opt/liferay/jmxremote.password"
+CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.access.file=/opt/liferay/jmxremote.access"
+CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=tomcat.zylk.net"
+```
 
-Copy next two files to your Nagios plugin directory.
+You should be able to connect via JMX with Jconsole, VisualVM or JMXTerm.
+
+In Nagios/Icinga server, copy next two files to your Nagios plugin directory.
  - check_jmx (Copy to /usr/lib/nagios/plugins/ - or your plugins directory) 
  - check_jmx.jar (Copy to /usr/lib/nagios/plugins/ - or your plugins directory) 
  
@@ -68,15 +79,16 @@ are configured. By default, 200 in our Tomcat setup.
   * CacheHits : This attribute tells us how many requests are successful in retrieving objects from the cache. It includes both in-memory and disk-based caches.
   * CacheMisses : This attribute tells us how many requests are unsuccessful in retrieving objects from the cache.
 
+Some of them are included in liferay-command.cfg are examples.
+
 ## Tested Setup
 
 - Liferay 6.2
 - Nagios/Icinga 3
 
 ## Authors
-
-- Gustavo Fernandez
-- Cesar Capillas
+- [Gustavo Fernandez](http://github.com/guszylk)
+- [Cesar Capillas](http://github.com/CesarCapillas)
 
 ## Links
 

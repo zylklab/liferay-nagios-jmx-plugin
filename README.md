@@ -1,6 +1,6 @@
 # Nagios / Icinga Plugin for Liferay Portal via JMX
 
-## Installation
+## Liferay Config
 
 First configure your JMX credentials in Liferay Portal via $CATALINA_OPTS variable in $TOMCAT_HOME/bin/setenv.sh (and restart your Liferay service): 
 ```
@@ -14,6 +14,8 @@ CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=tomcat.zylk.net"
 ```
 
 You should be able to connect and check JMX objects with Jconsole, VisualVM or JMXTerm.
+
+## Nagios/Icinga Config
 
 In Nagios/Icinga server, copy next two files to your Nagios plugin directory.
  - check_jmx (Copy to /usr/lib/nagios/plugins/ - or your plugins directory) 
@@ -54,7 +56,7 @@ Finally, configure you Liferay host and services to configure.
 - /etc/icinga/objects/hosts-icinga.cfg 
 - /etc/icinga/objects/services-icinga.cfg 
 
-## JMX Objects
+## Monitoring examples
 
 Some basics in Liferay Monitoring are:
 

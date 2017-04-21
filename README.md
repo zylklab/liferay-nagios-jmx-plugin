@@ -56,7 +56,7 @@ Finally, configure you Liferay host and services to configure.
 - /etc/icinga/objects/hosts-icinga.cfg 
 - /etc/icinga/objects/services-icinga.cfg 
 
-## Monitoring examples
+## Direct monitoring examples
 
 Some basics in Liferay Monitoring are:
 
@@ -73,14 +73,17 @@ are configured. By default, 200 in our Tomcat setup.
   * numBusyConnections : This attribute tells us how many database connections are in use by Liferay server.
   * numConnections : This attribute tells us how many connections are created in the database connection pool (busy and idle connections).
 
-* Cache statistics: They provide information of various attributes, but here are some of the key attributes for monitoring:
-  * ObjectCount : This attribute tells us how many objects there are in the cache.
-  * OnDiskHits : This attribute tells us how many requests are successful in locating objects from a filesystem-based cache. 
-  * InMemoryHits : This attribute tells us how many requests are successful in retrieving objects from an in-memory cache.
-  * CacheHits : This attribute tells us how many requests are successful in retrieving objects from the cache. It includes both in-memory and disk-based caches.
-  * CacheMisses : This attribute tells us how many requests are unsuccessful in retrieving objects from the cache.
+They are included in liferay-command.cfg as examples.
 
-Some of them are included in liferay-command.cfg as examples.
+## NRPE configuration
+
+Sometimes it is better for security considerations run JMX locally and use NRPE protocol for monitoring.
+
+In your server, you need something like (for Ubuntu):
+```
+$ sudo apt-get install nagios-plugins nagios-nrpe-server
+```
+adding the provided NRPE commands in /etc/nagios/nrpe.cfg or similar, allowing to your Nagios server to connect via NRPE protocol to Liferay Server. The new configuration for NRPE services is done in Nagios Server too. Check the example commands  under nrpe folder.
 
 ## Tested Setup
 - Liferay 6.2

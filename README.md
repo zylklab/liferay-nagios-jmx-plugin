@@ -45,7 +45,7 @@ define host{
 ```
 define service {
         use                 generic-service
-        host_name           liferay
+        host_name           tomcat
         service_description JVM Heap Memory Used
         check_command       check_jmx_HeapMemoryUsage_Used!9999!zylk!secret!750000000!800000000
 }
